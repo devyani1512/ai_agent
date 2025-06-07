@@ -57,5 +57,5 @@ if question:
     }
     result = chain.invoke(full_prompt_input)
 
-    st.subheader("👻 Answer")
+    st.subheader("📘 Answer")
     st.write(result)
