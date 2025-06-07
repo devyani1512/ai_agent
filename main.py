@@ -1,5 +1,6 @@
 # main.py
 import streamlit as st
+from pyngrok import ngrok
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 from vector import retriever
@@ -32,6 +33,8 @@ chain = prompt | model
 def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs)
 
+public_url = ngrok.connect(8501)
+print("Streamlit app is live at:", public_url)
 # Streamlit UI
 st.set_page_config(page_title="OOP in C++ Chatbot", page_icon="💿")
 st.title("🔍 Ask about OOP in C++")
