@@ -5,10 +5,10 @@ from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 from vector import retriever
 
-# LLM model
+
 model = OllamaLLM(model="llama3.2")
 
-# Prompt template
+
 template = """
 You are a highly knowledgeable AI assistant helping answer questions from a textbook on Object-Oriented Programming using C++.
 
@@ -29,7 +29,7 @@ Answer:"""
 prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
-# Function to format retrieved documents
+
 def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs)
 
@@ -44,13 +44,13 @@ question = st.text_input("Type your question here:")
 if question:
     docs = retriever.invoke(question)
 
-    # Optional: Show retrieved documents
+    
     with st.expander("🔍 Retrieved Context"):
         for i, doc in enumerate(docs):
             st.markdown(f"**Document {i+1}:**")
             st.write(doc.page_content.strip())
 
-    # Run the LLM chain
+    
     full_prompt_input = {
         "reviews": format_docs(docs),
         "question": question
