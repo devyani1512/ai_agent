@@ -134,21 +134,11 @@ For external access:
 
 ### Common Issues
 
-1. **Ollama not found**: Make sure Ollama is properly installed and added to your PATH
-2. **Model download fails**: Check your internet connection and try again
-3. **Port already in use**: Change the port in Streamlit using `--port` flag:
-   ```bash
-   streamlit run main.py --port 8502
+main.py --port 8502
    ```
-4. **Virtual environment issues**: Make sure you're in the correct directory and the venv is activated
+ **Virtual environment issues**: Make sure you're in the correct directory and the venv is activated
 
-### Performance Tips
 
-- Ensure you have sufficient RAM for the models (8GB+ recommended)
-- Use GPU acceleration if available
-- Consider using smaller models for faster inference on limited hardware
-
-## Development
 
 ### Project Structure
 
@@ -161,36 +151,4 @@ ai_agent/
 └── README.md           # This file
 ```
 
-### Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## Requirements
-
-The main dependencies include:
-- `streamlit` - Web interface framework
-- `ollama` - LLM inference client
-- `sentence-transformers` - Embedding models
-- Additional dependencies as specified in `requirements.txt`
-
-## License
-
-[Add your license information here]
-
-## Support
-
-If you encounter any issues or have questions:
-
-1. Check the troubleshooting section above
-2. Review the [Ollama documentation](https://ollama.ai/docs)
-3. Open an issue on GitHub
-
-## Acknowledgments
-
-- [Ollama](https://ollama.ai/) for local LLM inference
-- [Streamlit](https://streamlit.io/) for the web framework
-- The open-source AI community for model development
