@@ -24,6 +24,7 @@ chunks = splitter.create_documents([text])
 # Step 3: Embeddings
 embeddings = OllamaEmbeddings(model="mxbai-embed-large")
 db_location = "./chrome_langchain_db"
+# we set add_documents to true if path/database does not exist
 add_documents = not os.path.exists(db_location)
 
 # Step 4: Chroma DB
@@ -32,7 +33,7 @@ vector_store = Chroma(
     persist_directory=db_location,
     embedding_function=embeddings
 )
-
+# if database does not exist we add documents to it now
 if add_documents:
     print(f"[DEBUG] Adding {len(chunks)} documents to vector store...")
     vector_store.add_documents(chunks)
