@@ -29,8 +29,8 @@ add_documents = not os.path.exists(db_location)
 
 # Step 4: Chroma DB
 vector_store = Chroma(
-    collection_name="oop_cpp_book",
-    persist_directory=db_location,
+    collection_name="oop_cpp_book",#name of collection
+    persist_directory=db_location,#location
     embedding_function=embeddings
 )
 # if database does not exist we add documents to it now
